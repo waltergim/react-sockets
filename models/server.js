@@ -15,7 +15,7 @@ const Sockets = require('./sockets')
 class Server {
     constructor(){
         this.app = express();;
-        this.port = process.env.PORT;
+        this.PORT = process.env.PORT || 8080;
 
         //http Server
         this.server = http.createServer( this.app )
@@ -38,8 +38,8 @@ class Server {
         //inicializarSOckets
         this.configurarSockets()
         // inicializar server
-        this.server.listen(this.port, () =>{
-            console.log("server corriendo en puerto:",this.port)
+        this.server.listen(this.PORT || 8080, () =>{
+            console.log("server corriendo en puerto:",this.PORT)
         
         });
     }
